@@ -51,6 +51,8 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
             viewModel.WebcamLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebcamLabel);
             viewModel.EnableFacialRecognitionPlaceholderText = dataSourceItem.EnableFacialRecognitionPlaceholderText;
             viewModel.WebcamAccessWarningLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebcamAccessWarning);
+            viewModel.SaveErrorLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.SaveErrorText);
+            viewModel.SaveSuccessLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.SaveSuccessText);
 
             return this.View(viewModel);
         }
@@ -77,6 +79,8 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
             viewModel.UseStandardLoginUrl = dataSourceItem.UseStandardLoginLink?.Url ?? string.Empty;
             viewModel.CreateAccountText = dataSourceItem.CreateAccountLink?.Text ?? string.Empty;
             viewModel.CreateAccountUrl = dataSourceItem.CreateAccountLink?.Url ?? string.Empty;
+            viewModel.WebcamAccessWarningLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebcamAccessWarning);
+            viewModel.LoginFailedLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.LoginFailedText);
 
             return this.View(viewModel);
         }
@@ -109,7 +113,7 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
             return this.Json(new { Data = "PersonId = " + data.PersonId }, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult VerifyPerson()
+        public JsonResult VerifyPerson(string capturedImage)
         {
             return null;
         }

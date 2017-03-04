@@ -10,5 +10,7 @@
         string SearchingText { get; set; }
         Link UseStandardLoginLink { get; set; }
         Link CreateAccountLink { get; set; }
+        string WebcamAccessWarning { get; set; }
+        string LoginFailedText { get; set; }
     }
 }

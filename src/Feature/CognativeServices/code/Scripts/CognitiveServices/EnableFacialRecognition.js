@@ -35,6 +35,7 @@
 
                 if (!snapshot) {
                     webcamCapture.captureSnapshot();
+                    webcamCapture.switchToSnapshot();
                     snapshot = webcamCapture.getSnapshot();
                 }
 
