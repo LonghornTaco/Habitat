@@ -93,9 +93,8 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
                 };
             }
 
-            // TODO: add parameters in here
-            var personId = this.faceApiService.CreatePerson();
-            this.faceApiService.AddPhotoToPerson(personId, model.CapturedImage);
+           var capturedImage = model.CapturedImage.Replace("data:image/jpeg;base64,", "");
+            var personId = this.faceApiService.CreatePerson(Context.User.LocalName, capturedImage);
 
             if (!Tracker.Enabled)
             {

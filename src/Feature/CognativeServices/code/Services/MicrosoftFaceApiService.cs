@@ -4,23 +4,21 @@ using System.Linq;
 using System.Web;
 using Microsoft.ProjectOxford.Face.Contract;
 using Sitecore.Feature.CognitiveServices.Models.Repository;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Sitecore.Feature.CognitiveServices.Configuration;
+using Newtonsoft.Json;
 
 namespace Sitecore.Feature.CognitiveServices.Services
 {
-   using System.Net.Http;
-   using System.Net.Http.Headers;
-   using Newtonsoft.Json;
-
    public class MicrosoftFaceApiService : IFaceApiService
    {
-      private string _apiKey = "cb3329adc3f1475d8a1227f4627da0b0";
-      private string _apiRoot = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-      private string _detectApi = "detect";
-      private string _personApi = "persons";
-      private string _personGroupApi = "persongroups";
-      private string _identifyApi = "identify";
+      private readonly ICognitiveServicesConfiguration _configuration;
 
-      private string _personGroupId = "eff83b97-845f-4fd0-9bbf-8ac8d5696bce";
+      public MicrosoftFaceApiService(ICognitiveServicesConfiguration configuration)
+      {
+         _configuration = configuration;
+      }
 
       public Face[] Detect(string base64Image)
       {
@@ -47,8 +45,8 @@ namespace Sitecore.Feature.CognitiveServices.Services
          CreatePersonResult createPersonResult;
          using (var client = new HttpClient())
          {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
-            var uri = $"{_apiRoot}/{_personGroupApi}/{_personGroupId}/{_personApi}/";
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _configuration.ApiKey);
+            var uri = $"{_configuration.ApiRoot}/{_configuration.PersonGroupApi}/{_configuration.PersonGroupId}/{_configuration.PersonApi}/";
 
             var data = JsonConvert.SerializeObject(new { name = name });
             var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
@@ -106,16 +104,16 @@ namespace Sitecore.Feature.CognitiveServices.Services
          {
             var data = JsonConvert.SerializeObject(new
             {
-               personGroupId = _personGroupId,
+               personGroupId = _configuration.PersonGroupId,
                faceIds = new[] { faces[0].FaceId },
                maxNumOfCandidatesReturned = 1,
                confidenceThreshold = 0.9
             });
             using (var client = new HttpClient())
             {
-               client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
+               client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _configuration.ApiKey);
 
-               var uri = $"{_apiRoot}/{_identifyApi}";
+               var uri = $"{_configuration.ApiRoot}/{_configuration.IdentifyApi}";
                var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                var response = client.PostAsync(uri, content).Result;
                var result = response.Content.ReadAsStringAsync().Result;
@@ -153,10 +151,10 @@ namespace Sitecore.Feature.CognitiveServices.Services
          {
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _configuration.ApiKey);
             queryString["returnFaceId"] = "true";
             queryString["returnFaceLandmarks"] = "false";
-            var uri = $"{_apiRoot}/{_detectApi}?" + queryString;
+            var uri = $"{_configuration.ApiRoot}/{_configuration.DetectApi}?" + queryString;
 
             using (var content = new ByteArrayContent(byteData))
             {
@@ -177,8 +175,8 @@ namespace Sitecore.Feature.CognitiveServices.Services
 
          using (var client = new HttpClient())
          {
-            var uri = $"{_apiRoot}/{_personGroupApi}/{_personGroupId}/persons";
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
+            var uri = $"{_configuration.ApiRoot}/{_configuration.PersonGroupApi}/{_configuration.PersonGroupId}/persons";
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _configuration.ApiKey);
             var response = client.GetAsync(uri).Result;
             var result = response.Content.ReadAsStringAsync().Result;
 

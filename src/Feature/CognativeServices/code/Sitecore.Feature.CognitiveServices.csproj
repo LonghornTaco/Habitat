@@ -188,7 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ValidateModelAttribute.cs" />
+    <Compile Include="Configuration\CognitiveServicesConfiguration.cs" />
     <Compile Include="Configuration\EnableFacialRecognitionMap.cs" />
+    <Compile Include="Configuration\ICognitiveServicesConfiguration.cs" />
     <Compile Include="Configuration\LoginWithSitecoreHelloMap.cs" />
     <Compile Include="Controllers\CognitiveServicesController.cs" />
     <Compile Include="Facets\ContactSitecoreHello.cs" />
