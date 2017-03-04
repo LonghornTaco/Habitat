@@ -27,10 +27,48 @@
         }, "p")
     </div>
 
+    <style>
+        .hellohidden {
+          display: none;
+        }
+    </style>
+    <div id="webcamAccessErrorSection" class="hellohidden">
+        Webcam access is required for Sitecore Hello to work. Please enable and check the box again. Thanks.
+    </div>
+    <video id="player" class="hellohidden" width="320" height="240" autoplay></video>
+    <canvas id="snapshot" class="hellohidden" width="320" height="240"></canvas>
+
     <div class="form-group @Html.ValidationErrorFor(x => x.FaceImageFile, "has-error")">
         <label class="control-label" for="@nameof(Model.FaceImageFile)"></label>
         @Html.EditorFor(x => x.FaceImageFile)
     </div>
 
-    <input type="submit" class="btn btn-primary btn-lg btn-block" value="@Model.SaveButtonText" />
+    <script src="/scripts/CognitiveServices/CognitiveServices.js" language="javascript" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        var checkboxElement = document.getElementById('@(nameof(Model.EnableFacialRecognition))');
+
+        checkboxElement.addEventListener('click', function () {
+            if (checkboxElement.checked) {
+                webcamCapture.initialize({
+                    webcamAccessErrorSection: 'webcamAccessErrorSection',
+                    videoPlayer: 'player',
+                    snapshotCanvas: 'snapshot'
+                });
+            } else if (webcamCapture.videoTracks) {
+                webcamCapture.teardown();
+            }
+        });
+
+        function onSaveClick() {
+            if (checkboxElement.checked) {
+                webcamCapture.captureSnapshot();
+                var snapshot = webcamCapture.getSnapshot();
+                // TODO: Set a hidden field value with the snapshot before submit.
+            }
+
+            return true;
+        }
+    </script>
+
+    <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return onSaveClick();" value="@Model.SaveButtonText"/>
 }
