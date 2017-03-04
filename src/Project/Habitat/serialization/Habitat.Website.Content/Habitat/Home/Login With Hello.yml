@@ -5,6 +5,18 @@ Template: "1fcfc73f-ad3d-4b02-afd5-ba26a03fb082"
 Path: /sitecore/content/Habitat/Home/Login With Hello
 DB: master
 SharedFields:
+- ID: "0dca829c-9fce-41f5-9990-c6182fefe905"
+  Hint: SeoFollowLinks
+  Type: Checkbox
+  Value: 0
+- ID: "683d7237-206a-488f-9dee-4a4e41fb161d"
+  Hint: CanIndex
+  Type: Checkbox
+  Value: 0
+- ID: "8d5c486e-a0e3-4dbe-9a4a-cdff93594bda"
+  Hint: IncludeInSearchResults
+  Type: Checkbox
+  Value: 0
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 1000
@@ -47,7 +59,7 @@ Languages:
         </r>
     - ID: "1b483e91-d8c4-4d19-ba03-462074b55936"
       Hint: NavigationTitle
-      Value: Enable Facial Recognition
+      Value: Login with Sitecore Hello
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20170304T053427Z
@@ -61,10 +73,10 @@ Languages:
         <image mediaid="{0A1986FC-F297-4B6E-88DD-3DF71C679C96}" />
     - ID: "ac3fd4db-8266-476d-9635-67814d91e901"
       Hint: Summary
-      Value: "<p>Sitecore is getting more personal! Say goodbye to entering complex passwords and start using Sitecore Hello to log in to your Sitecore Helix based website. Sitecore Hello will verify your identity using the Microsoft Face API and automatically log you in so you can start enjoying all the benefits of being a registered user on the site!</p>"
+      Value: 
     - ID: "c30a013f-3cc8-4961-9837-1c483277084a"
       Hint: Title
-      Value: Sitecore Hello
+      Value: Login with Sitecore Hello
     - ID: "ca0479ce-0bfe-4522-83de-ba688b380a78"
       Hint: BrowserTitle
-      Value: Enable Sitecore Hello
+      Value: Login with Sitecore Hello
