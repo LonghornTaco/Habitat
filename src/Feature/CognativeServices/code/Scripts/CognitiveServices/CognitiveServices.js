@@ -1,30 +1,28 @@
 ﻿(function (window) {
 
-    function webcamSnapshotTaker() {
+    function webcamSnapshotTaker () {
     }
 
     webcamSnapshotTaker.prototype.initialize = function (options) {
-        this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
         this.videoPlayerElement = document.getElementById(options.videoPlayer);
         this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
-        this.webcamSectionElement = document.getElementById(options.webcamSection);
 
         this.teardown();
+        var _this = this;
 
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(this.attachWebcamStreamToVideoPlayer.bind(this))
-            .then(this.hideWebcamAccessErrorSection.bind(this))
-            .then(this.displayVideoPlayer.bind(this))
-            .then(this.displayWebcamSection.bind(this))
-            .catch(this.handleWebcamAccessError.bind(this));
+        return new Promise(function (resolve, reject) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(_this.attachWebcamStreamToVideoPlayer.bind(_this))
+                .then(_this.displayVideoPlayer.bind(_this))
+                .then(resolve)
+                .catch(reject);
+        });
     };
 
     webcamSnapshotTaker.prototype.teardown = function () {
         this.stopWebcamStream();
-        this.hideWebcamAccessErrorSection();
         this.hideVideoPlayer();
         this.hideSnapshot();
-        this.hideWebcamSection();
     };
 
     webcamSnapshotTaker.prototype.isInitialized = function () {
@@ -73,14 +71,6 @@
         }
     };
 
-    webcamSnapshotTaker.prototype.displayWebcamSection = function () {
-        this.show(this.webcamSectionElement);
-    };
-
-    webcamSnapshotTaker.prototype.hideWebcamSection = function () {
-        this.hide(this.webcamSectionElement);
-    };
-
     webcamSnapshotTaker.prototype.displayVideoPlayer = function () {
         this.show(this.videoPlayerElement);
     };
@@ -95,16 +85,6 @@
 
     webcamSnapshotTaker.prototype.hideSnapshot = function () {
         this.hide(this.snapshotCanvasElement);
-    };
-
-    webcamSnapshotTaker.prototype.hideWebcamAccessErrorSection = function () {
-        this.hide(this.webcamAccessErrorSectionElement);
-    };
-
-    webcamSnapshotTaker.prototype.handleWebcamAccessError = function (error) {
-        if (error.name === "PermissionDeniedError") {
-            this.show(this.webcamAccessErrorSectionElement);
-        }
     };
 
     window.WebcamSnapshotTaker = webcamSnapshotTaker;

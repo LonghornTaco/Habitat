@@ -1,41 +1,52 @@
 ﻿(function ($, window) {
 
     $(function () {
-        var checkboxElement = document.getElementById("EnableFacialRecognition");
+        var enableFacialRecognitionButton = document.getElementById("EnableFacialRecognition");
+        var webcamAccessErrorSectionElement = document.getElementById("webcamAccessErrorSection");
+        var webcamSectionElement = document.getElementById("webcamPanel");
         var saveFaceButton = document.getElementById("saveFace");
+        var saveErrorSectionElement = document.getElementById("saveErrorSection");
+        var saveSuccessSectionElement = document.getElementById("saveSuccessSection");
         var webcamCapture = new window.WebcamSnapshotTaker();
 
-        checkboxElement.addEventListener("click", function () {
-            if (checkboxElement.checked) {
-                webcamCapture.initialize({
-                    webcamAccessErrorSection: "webcamAccessErrorSection",
-                    videoPlayer: "player",
-                    snapshotCanvas: "snapshot",
-                    webcamSection: "webcamPanel"
+        var snapshot;
+
+        enableFacialRecognitionButton.addEventListener("click", function () {
+            webcamCapture.initialize({
+                videoPlayer: "player",
+                snapshotCanvas: "snapshot"
+            })
+                .then(function () {
+                    $(webcamAccessErrorSectionElement).hide();
+                    $(enableFacialRecognitionButton).hide();
+                    $(webcamSectionElement).show();
+                })
+                .catch(function() {
+                    $(webcamAccessErrorSectionElement).show();
                 });
-            } else if (webcamCapture.isInitialized()) {
-                webcamCapture.teardown();
-            }
         });
 
         saveFaceButton.addEventListener("click", function (event) {
             var shouldSubmit = true;
 
-            if (checkboxElement.checked && webcamCapture.isInitialized()) {
+            if (webcamCapture.isInitialized() || snapshot) {
                 event.preventDefault();
                 shouldSubmit = false;
 
-                webcamCapture.captureSnapshot();
-                var snapshot = webcamCapture.getSnapshot();
+                if (!snapshot) {
+                    webcamCapture.captureSnapshot();
+                    snapshot = webcamCapture.getSnapshot();
+                }
 
                 var jqxhr = $.post('/api/cognitiveservices/setpersonimage',
                     { 'CapturedImage': snapshot },
                     function (data, textStatus, jqXHR) {
-                        console.log('success');
+                        $(webcamSectionElement).hide();
+                        $(saveSuccessSectionElement).show();
                     },
                     "json")
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        console.log("fail");
+                        $(saveErrorSectionElement).show();
                     });
             }
 

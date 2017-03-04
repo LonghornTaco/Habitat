@@ -19,41 +19,36 @@
 {
     @Html.AddUniqueFormId()
 
-    <div class="form-group @Html.ValidationErrorFor(x => x.EnableFacialRecognition, "has-error")">
-        <label for="@nameof(Model.EnableFacialRecognition)" class="control-label">@Model.EnableFacialRecognitionLabel</label>
+    string EnableFacialRecognitionButtonCssClass = Model.EnableFacialRecognition ? "hidden" : "";
+    <input type="button" id="@nameof(Model.EnableFacialRecognition)" class="btn btn-primary btn-lg btn-block @EnableFacialRecognitionButtonCssClass" value="@Model.EnableFacialRecognitionLabel" />
 
-        @Html.CheckBoxFor(x => x.EnableFacialRecognition, new
-       {
-           @class = "form-control",
-           @placeholder = Model.EnableFacialRecognitionPlaceholderText
-       })
-
-        @Html.ValidationMessageFor(x => x.EnableFacialRecognition, "", new
-       {
-           @class = "help-block"
-       }, "p")
-    </div>
-
-
-    <div id="webcamAccessErrorSection" class="alert alert-warning">
+    <div id="webcamAccessErrorSection" class="alert alert-warning" style="display: none;">
         @Model.WebcamAccessWarningLabel
     </div>
 
-    <div id="webcamPanel" class="well-sm hidden">
-        
+    <div id="webcamPanel" class="well-sm" style="display: none;">
         <div class="panel panel-info">
             <div class="panel-heading">@Model.TitleText</div>
             <div class="panel-body">
-                @Model.InformationText
+                <div>@Model.InformationText</div>
                 <video id="player" class="center-block" width="550" height="413" autoplay></video>
                 <canvas id="snapshot" class="center-block hidden" width="550" height="413"></canvas>
             </div>
         </div>
+
+        <div class="form-group @Html.ValidationErrorFor(x => x.CapturedImage, "has-error")">
+            @Html.HiddenFor(x => x.CapturedImage)
+        </div>
+
+        <input type="button" id="saveFace" class="btn btn-primary btn-lg btn-block" value="@Model.SaveButtonText" />
+
+        <div id="saveErrorSection" class="alert alert-danger" style="display: none;">
+            There was an error while saving the face. Please try again.
+        </div>
     </div>
 
-    <div class="form-group @Html.ValidationErrorFor(x => x.CapturedImage, "has-error")">
-        @Html.HiddenFor(x => x.CapturedImage)
+    <div id="saveSuccessSection" class="alert alert-success" style="display: none;">
+        Face successfully saved. Enjoy the frictionless login!
     </div>
 
-    <input type="submit" id="saveFace" class="btn btn-primary btn-lg btn-block" value="@Model.SaveButtonText" />
 }
