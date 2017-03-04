@@ -7,6 +7,7 @@
             this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
             this.videoPlayerElement = document.getElementById(options.videoPlayer);
             this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
+            this.webcamPanel = document.getElementById(options.webcamPanel);
 
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then(this.attachWebcamStreamToVideoPlayer.bind(this))
@@ -62,7 +63,7 @@
         },
 
         displayVideoPlayer: function() {
-            this.show(this.videoPlayerElement);
+            this.show(this.webcamPanel);
         },
 
         hideVideoPlayer: function() {
@@ -97,7 +98,8 @@
                 webcamCapture.initialize({
                     webcamAccessErrorSection: "webcamAccessErrorSection",
                     videoPlayer: "player",
-                    snapshotCanvas: "snapshot"
+                    snapshotCanvas: "snapshot",
+                    webcamPanel: "webcamPanel"
                 });
             } else if (webcamCapture.videoTracks) {
                 webcamCapture.teardown();
@@ -109,6 +111,7 @@
                 webcamCapture.captureSnapshot();
                 var snapshot = webcamCapture.getSnapshot();
                 // TODO: Set a hidden field value with the snapshot before submit.
+                $("#CapturedImage").val(snapshot);
             }
 
             return true;
