@@ -1,14 +1,16 @@
 ﻿namespace Sitecore.Feature.CognitiveServices.IoC
 {
-    using Microsoft.Extensions.DependencyInjection;
-    using Sitecore.DependencyInjection;
-    using Sitecore.Feature.CognitiveServices.Controllers;
+   using Microsoft.Extensions.DependencyInjection;
+   using Sitecore.DependencyInjection;
+   using Sitecore.Feature.CognitiveServices.Controllers;
+   using Sitecore.Feature.CognitiveServices.Services;
 
-    public class CognitiveServicesConfigurator : IServicesConfigurator
-    {
-        public void Configure(IServiceCollection serviceCollection)
-        {
-            serviceCollection.AddTransient<CognitiveServicesController>();
-        }
-    }
+   public class CognitiveServicesConfigurator : IServicesConfigurator
+   {
+      public void Configure(IServiceCollection serviceCollection)
+      {
+         serviceCollection.AddTransient<CognitiveServicesController>();
+         serviceCollection.AddTransient<IFaceApiService, MicrosoftFaceApiService>();
+      }
+   }
 }
