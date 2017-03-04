@@ -20,8 +20,8 @@
                 var snapshot = webcamCapture.getSnapshot();
                 currentloginAttemptNumber += 1;
 
-                var jqxhr = $.post('/api/cognitiveservices/verifyperson',
-                    { 'capturedImage': snapshot },
+                var jqxhr = $.post('/api/cognitiveservices/loginwithhello',
+                    { 'CapturedImage': snapshot },
                     function (data, textStatus, jqXHR) {
                         webcamCapture.switchToSnapshot();
                         window.location.href = "/";
