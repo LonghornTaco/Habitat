@@ -4,6 +4,8 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
 {
     using System;
     using Glass.Mapper.Sc;
+    using Sitecore.Analytics;
+    using Sitecore.Feature.CognitiveServices.Facets;
     using Sitecore.Feature.CognitiveServices.Models;
     using Sitecore.Feature.CognitiveServices.Models.ViewModels;
     using Sitecore.Foundation.Orm;
@@ -52,9 +54,19 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
             return this.View();
         }
 
-        public JsonResult CreatePerson()
+        public JsonResult SetPersonImage()
         {
-            return null;
+            if (!Tracker.Enabled)
+            {
+                return this.Json(new {Errors = "Analytics is disabled"}, JsonRequestBehavior.AllowGet);
+            }
+
+            var contact = Tracker.Current.Contact;
+            var data = contact.GetFacet<IContactSitecoreHello>("SitecoreHello");
+            data.PersonId = "";
+
+
+            return this.Json(new { Data = "PersonId = " + data.PersonId }, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult VerifyPerson()
