@@ -2,6 +2,7 @@
 {
   using Sitecore.Configuration;
   using Sitecore.Data;
+  using Sitecore.Foundation.Accounts.Services;
   using Sitecore.Foundation.SitecoreExtensions.Services;
 
   public class AccountTrackerService : IAccountTrackerService

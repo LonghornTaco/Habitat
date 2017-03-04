@@ -12,6 +12,7 @@
   using Sitecore.FakeDb.Sites;
   using Sitecore.Feature.Accounts.Services;
   using Sitecore.Feature.Accounts.Tests.Extensions;
+  using Sitecore.Foundation.Accounts.Services;
   using Sitecore.Foundation.SitecoreExtensions.Extensions;
   using Sitecore.Foundation.Testing.Attributes;
   using Sitecore.Sites;

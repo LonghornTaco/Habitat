@@ -22,6 +22,7 @@
     using Sitecore.Feature.Accounts.Models;
     using Sitecore.Feature.Accounts.Repositories;
     using Sitecore.Feature.Accounts.Services;
+    using Sitecore.Foundation.Accounts.Services;
     using Sitecore.Foundation.Alerts;
     using Sitecore.Foundation.Alerts.Models;
     using Sitecore.Foundation.Dictionary.Repositories;

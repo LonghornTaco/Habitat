@@ -1,7 +1,8 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.Foundation.Accounts.Services
 {
     using System;
     using System.Web;
+    using Sitecore.Foundation.Accounts;
     using Sitecore.Foundation.SitecoreExtensions.Extensions;
 
     public class GetRedirectUrlService : IGetRedirectUrlService

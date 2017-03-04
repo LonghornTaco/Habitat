@@ -8,6 +8,7 @@
   using Sitecore.Feature.Accounts.Services;
   using Sitecore.Feature.Accounts.Tests.Extensions;
   using Sitecore.Feature.Accounts.Tests.FixtureContext;
+  using Sitecore.Foundation.Accounts.Services;
   using Xunit;
 
   public class NotificationServiceTests : IClassFixture<SmtpWrapper>

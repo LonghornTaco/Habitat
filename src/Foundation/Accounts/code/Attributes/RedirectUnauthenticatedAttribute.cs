@@ -1,9 +1,7 @@
-﻿namespace Sitecore.Feature.Accounts.Attributes
+﻿namespace Sitecore.Foundation.Accounts.Attributes
 {
-    using System;
     using System.Web.Mvc;
-    using Sitecore.Feature.Accounts.Services;
-    using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using Sitecore.Foundation.Accounts.Services;
 
     public class RedirectUnauthenticatedAttribute : ActionFilterAttribute, IAuthorizationFilter
     {

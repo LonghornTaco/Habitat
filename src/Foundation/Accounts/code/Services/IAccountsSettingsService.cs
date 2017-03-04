@@ -1,10 +1,10 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.Foundation.Accounts.Services
 {
-  using System.Net.Mail;
-  using Sitecore.Data;
-  using Sitecore.Data.Items;
+    using System.Net.Mail;
+    using Sitecore.Data;
+    using Sitecore.Data.Items;
 
-  public interface IAccountsSettingsService
+    public interface IAccountsSettingsService
   {
     string GetPageLink(Item contextItem, ID fieldID);
     MailMessage GetForgotPasswordMailTemplate();

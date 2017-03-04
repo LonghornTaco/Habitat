@@ -165,6 +165,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\ValidateModelAttribute.cs" />
+    <Compile Include="Controllers\CognitiveServicesController.cs" />
     <Compile Include="IoC\CognitiveServicesConfigurator.cs" />
     <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,8 +195,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Attributes\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />

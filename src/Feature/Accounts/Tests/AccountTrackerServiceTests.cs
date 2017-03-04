@@ -16,6 +16,7 @@
   using Sitecore.FakeDb.AutoFixture;
   using Sitecore.Feature.Accounts.Services;
   using Sitecore.Feature.Accounts.Tests.Extensions;
+  using Sitecore.Foundation.Accounts.Services;
   using Sitecore.Foundation.SitecoreExtensions.Services;
   using Sitecore.Foundation.Testing.Attributes;
   using Xunit;

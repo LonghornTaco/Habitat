@@ -1,16 +1,17 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.Foundation.Accounts.Services
 {
-  using System;
-  using System.Net.Mail;
-  using Sitecore.Configuration;
-  using Sitecore.Data;
-  using Sitecore.Data.Fields;
-  using Sitecore.Data.Items;
-  using Sitecore.Diagnostics;
-  using Sitecore.Exceptions;
-  using Sitecore.Foundation.SitecoreExtensions.Extensions;
+    using System;
+    using System.Net.Mail;
+    using Sitecore.Configuration;
+    using Sitecore.Data;
+    using Sitecore.Data.Fields;
+    using Sitecore.Data.Items;
+    using Sitecore.Diagnostics;
+    using Sitecore.Exceptions;
+    using Sitecore.Foundation.Accounts;
+    using Sitecore.Foundation.SitecoreExtensions.Extensions;
 
-  public class AccountsSettingsService : IAccountsSettingsService
+    public class AccountsSettingsService : IAccountsSettingsService
   {
     public static readonly string PageNotFoundUrl = Settings.GetSetting("Sitecore.Feature.Accounts.PageNotFoundUrl", "/404");
     public static AccountsSettingsService Instance => new AccountsSettingsService();
