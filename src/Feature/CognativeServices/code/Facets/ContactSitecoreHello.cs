@@ -11,8 +11,9 @@
 
         public ContactSitecoreHello()
         {
-            this.EnsureAttribute<IContactSitecoreHello>(PERSON_ID);
-        }
+         //this.EnsureAttribute<IContactSitecoreHello>(PERSON_ID);
+         this.EnsureAttribute<string>(PERSON_ID);
+      }
 
         public string PersonId
         {
