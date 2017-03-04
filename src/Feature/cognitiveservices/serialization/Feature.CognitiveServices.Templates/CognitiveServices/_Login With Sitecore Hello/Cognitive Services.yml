@@ -1,0 +1,14 @@
+﻿---
+ID: "68c76d6a-8d7c-44f7-98ee-f3dde1cf9d79"
+Parent: "fb12724b-7d92-4621-8270-08da4e616a56"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/CognitiveServices/_Login With Sitecore Hello/Cognitive Services
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T183946Z

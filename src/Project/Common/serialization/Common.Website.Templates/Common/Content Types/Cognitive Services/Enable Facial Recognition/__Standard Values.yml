@@ -36,7 +36,9 @@ Languages:
       Value: Enable Facial Recognition
     - ID: "c8c9676f-4313-4098-87f2-2c7eaea2d026"
       Hint: InformationText
-      Value: "Sitecore is getting more personal! Say goodbye to entering complex passwords and start using Sitecore Hello to log in to your Sitecore Helix based website. Sitecore Hello will verify your identity using the Microsoft Face API and automatically log you in so you can start enjoying all the benefits of being a registered user on the site!"
+      Value: |
+        <p>Please make sure that your face is centered in the image and that you are looking directly at the camera. </p>
+        <p>&nbsp;When you are ready click the&nbsp;<strong>Save Face</strong>&nbsp;button and your profile will be enabled for logging in via facial recognition. Welcome to Sitecore Hello!</p>
     - ID: "cf0e537b-80e1-45b2-8e0a-c3a2d895b4bc"
       Hint: CancelButtonText
       Value: Cancel
