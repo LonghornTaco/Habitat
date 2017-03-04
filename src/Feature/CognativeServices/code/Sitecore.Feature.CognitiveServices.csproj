@@ -192,6 +192,7 @@
     <Compile Include="Pipelines\RegisterWebApiRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IFaceApiService.cs" />
+    <Compile Include="Services\MicrosoftFaceApiService.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>
