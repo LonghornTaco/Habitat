@@ -1,0 +1,25 @@
+﻿---
+ID: "da569bf4-bb0f-4c7f-9eef-52c7f524cd0a"
+Parent: "69c2d2f3-1330-414d-8d46-4e02a0c0fa0d"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Common/Content Types/Cognitive Services/Enable Facial Recognition
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: PeopleV2/32x32/eye.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: "{EBD9B934-7BBF-494F-9FAE-F6CF920E2E8F}"
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{85C84A2B-489D-4653-B856-1AB61B4D4166}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T052459Z

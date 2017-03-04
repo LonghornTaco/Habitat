@@ -1,0 +1,39 @@
+﻿---
+ID: "85c84a2b-489d-4653-b856-1ab61b4d4166"
+Parent: "da569bf4-bb0f-4c7f-9eef-52c7f524cd0a"
+Template: "da569bf4-bb0f-4c7f-9eef-52c7f524cd0a"
+Path: /sitecore/templates/Project/Common/Content Types/Cognitive Services/Enable Facial Recognition/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T052709Z
+    - ID: "496da463-7cff-4e44-9451-0932d5aa5fb6"
+      Hint: SaveButtonText
+      Value: Save Face
+    - ID: "591e3098-35fb-4376-b8c7-84deb11662c8"
+      Hint: EnableFacialRecognitionPlaceholderText
+      Value: Enable Facial Recognition
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "67e64287-616f-4a77-b3b1-7c02d432604a"
+      Hint: WebCamLabel
+      Value: "Here you are!"
+    - ID: "a3a1113f-f737-4b8d-94c7-1ef0ef080e60"
+      Hint: TitleText
+      Value: Welcome to Sitecore Hello
+    - ID: "c1569767-04b5-4f59-819e-4aab984828c4"
+      Hint: EnableFacialRecognitionLabel
+      Value: Enable Facial Recognition
+    - ID: "c8c9676f-4313-4098-87f2-2c7eaea2d026"
+      Hint: InformationText
+      Value: "Sitecore is getting more personal! Say goodbye to entering complex passwords and start using Sitecore Hello to log in to your Sitecore Helix based website. Sitecore Hello will verify your identity using the Microsoft Face API and automatically log you in so you can start enjoying all the benefits of being a registered user on the site!"
+    - ID: "cf0e537b-80e1-45b2-8e0a-c3a2d895b4bc"
+      Hint: CancelButtonText
+      Value: Cancel

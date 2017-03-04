@@ -1,0 +1,14 @@
+﻿---
+ID: "a31802ea-d71a-43af-8ccd-5b789024bcb3"
+Parent: "cf5bda54-fa5b-4cb6-b970-a27c191ac3fe"
+Template: "da569bf4-bb0f-4c7f-9eef-52c7f524cd0a"
+Path: /sitecore/content/Habitat/Home/Sitecore Hello/Content/Sitecore Hello Content
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T055042Z

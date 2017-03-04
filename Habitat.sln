@@ -204,6 +204,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.CognitiveS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.CognitiveSerivces.Tests", "src\Feature\CognativeServices\Tests\Sitecore.Feature.CognitiveSerivces.Tests.csproj", "{89332172-66B5-4749-9A6B-A8A024618A90}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orm", "Orm", "{091A7FD4-2D1C-47CC-ADB0-21C6F5F39051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Orm", "src\Foundation\Orm\code\Sitecore.Foundation.Orm.csproj", "{72157711-0128-4546-8D48-956184421ABC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -636,6 +640,14 @@ Global
 		{89332172-66B5-4749-9A6B-A8A024618A90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89332172-66B5-4749-9A6B-A8A024618A90}.Release|x64.ActiveCfg = Release|Any CPU
 		{89332172-66B5-4749-9A6B-A8A024618A90}.Release|x64.Build.0 = Release|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Debug|x64.Build.0 = Debug|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Release|x64.ActiveCfg = Release|Any CPU
+		{72157711-0128-4546-8D48-956184421ABC}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -730,5 +742,7 @@ Global
 		{29A61D26-F76E-4191-94BB-06B30E4FEF50} = {755F9E42-1707-4E1A-AE6D-3FD8A25118C0}
 		{5D36F415-A82C-4B6F-AD08-22D4AF15AA6F} = {29A61D26-F76E-4191-94BB-06B30E4FEF50}
 		{89332172-66B5-4749-9A6B-A8A024618A90} = {29A61D26-F76E-4191-94BB-06B30E4FEF50}
+		{091A7FD4-2D1C-47CC-ADB0-21C6F5F39051} = {D2CBE02E-6AA7-4343-9A01-891F971A17F5}
+		{72157711-0128-4546-8D48-956184421ABC} = {091A7FD4-2D1C-47CC-ADB0-21C6F5F39051}
 	EndGlobalSection
 EndGlobal
