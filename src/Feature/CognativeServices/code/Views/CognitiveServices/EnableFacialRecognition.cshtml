@@ -23,15 +23,15 @@
         <label for="@nameof(Model.EnableFacialRecognition)" class="control-label">@Model.EnableFacialRecognitionLabel</label>
 
         @Html.CheckBoxFor(x => x.EnableFacialRecognition, new
-       {
-           @class = "form-control",
-           @placeholder = Model.EnableFacialRecognitionPlaceholderText
-       })
+   {
+       @class = "form-control",
+       @placeholder = Model.EnableFacialRecognitionPlaceholderText
+   })
 
         @Html.ValidationMessageFor(x => x.EnableFacialRecognition, "", new
-       {
-           @class = "help-block"
-       }, "p")
+   {
+       @class = "help-block"
+   }, "p")
     </div>
 
 
@@ -40,7 +40,7 @@
     </div>
 
     <div id="webcamPanel" class="well-sm hidden">
-        
+
         <div class="panel panel-info">
             <div class="panel-heading">@Model.TitleText</div>
             <div class="panel-body">

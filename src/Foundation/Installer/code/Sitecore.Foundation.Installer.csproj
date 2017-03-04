@@ -214,9 +214,9 @@
     <Content Include="App_Data\MongoData\libeay32.dll" />
     <Content Include="App_Data\MongoData\mongorestore.exe" />
     <Content Include="App_Data\MongoData\ssleay32.dll" />
-    <Content Include="packages.config">
+    <None Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="web.config" />
     <None Include="web.config.transform" />
@@ -293,4 +293,3 @@
   <Target Name="AfterBuild">
   </Target> -->
 </Project>
-

@@ -98,7 +98,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Include\Foundation\Foundation.Forms.Serialization.config" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\Form\Index.cshtml" />
     <None Include="web.config.transform" />
@@ -161,4 +161,3 @@
   </Target>
   -->
 </Project>
-

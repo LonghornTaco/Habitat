@@ -162,7 +162,7 @@
     <Content Include="App_Config\Include\Feature\Feature.CognitiveServices.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Scripts\CognitiveServices\EnableFacialRecognition.js" />
     <Content Include="Scripts\CognitiveServices\CognitiveServices.js" />

@@ -57,7 +57,26 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
 
         public ActionResult LoginWithFacialRecognition()
         {
-            return this.View();
+            if (string.IsNullOrWhiteSpace(this.contextWrapper.DataSource))
+            {
+                return this.View();
+            }
+
+            var viewModel = new LoginWithSitecoreHelloViewModel();
+            var dataSourceItem = this.sitecoreContext.GetItem<ILoginWithSitecoreHello>(Guid.Parse(this.contextWrapper.DataSource));
+
+            if (dataSourceItem == null)
+            {
+                return this.View();
+            }
+
+            viewModel.TitleText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.TitleText);
+            viewModel.InformationText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.InformationText);
+            viewModel.SearchingText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.SearchingText);
+            viewModel.LoginButtonText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.LoginButtonText);
+            viewModel.UseStandardLoginUrl = dataSourceItem.UseStandardLoginUrl?.Url ?? string.Empty;
+
+            return this.View(viewModel);
         }
 
         public JsonResult SetPersonImage(EnableFacialRecognitionViewModel model)

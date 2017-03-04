@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="sitecore\shell\Applications\Dialogs\Multisite\DatasourceSettings.xml" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -180,4 +180,3 @@
   </Target>
   -->
 </Project>
-
