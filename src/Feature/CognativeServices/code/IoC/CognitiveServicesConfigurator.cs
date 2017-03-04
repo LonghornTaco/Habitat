@@ -2,12 +2,13 @@
 {
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.DependencyInjection;
+    using Sitecore.Feature.CognitiveServices.Controllers;
 
     public class CognitiveServicesConfigurator : IServicesConfigurator
     {
         public void Configure(IServiceCollection serviceCollection)
         {
-            // TODO: Register dependencies here
+            serviceCollection.AddTransient<CognitiveServicesController>();
         }
     }
 }

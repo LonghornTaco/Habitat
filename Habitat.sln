@@ -198,7 +198,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Diction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.Testing", "src\Foundation\Testing\code\Sitecore.Foundation.Testing.csproj", "{7CC3D72B-4518-4B78-BE48-630A263C0F5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CognativeServices", "CognativeServices", "{29A61D26-F76E-4191-94BB-06B30E4FEF50}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CognitiveServices", "CognitiveServices", "{29A61D26-F76E-4191-94BB-06B30E4FEF50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Feature.CognitiveServices", "src\Feature\CognativeServices\code\Sitecore.Feature.CognitiveServices.csproj", "{5D36F415-A82C-4B6F-AD08-22D4AF15AA6F}"
 EndProject

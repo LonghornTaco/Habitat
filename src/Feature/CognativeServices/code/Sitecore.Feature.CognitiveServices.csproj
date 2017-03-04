@@ -152,6 +152,8 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Scripts\CognitiveServices\CognitiveServices.js" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\CognitiveServices\EnableFacialRecognition.cshtml" />
+    <Content Include="Views\CognitiveServices\LoginWithFacialRecognition.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,7 +200,6 @@
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
-    <Folder Include="Views\CognitiveServices\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

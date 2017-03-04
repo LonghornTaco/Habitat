@@ -1,0 +1,18 @@
+﻿---
+ID: "efe100a5-642e-4305-8c50-e52aa8b13330"
+Parent: "96ee6e4c-eb8f-49ab-870b-3a97f6d18dbb"
+Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
+Path: /sitecore/layout/Renderings/Feature/CognitiveServices/Login With Facial Recognition
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T034126Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
