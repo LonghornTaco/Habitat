@@ -1,0 +1,19 @@
+﻿---
+ID: "ebd9b934-7bbf-494f-9fae-f6cf920e2e8f"
+Parent: "0cf8fe84-f097-472c-a266-6bbed28e2efe"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Feature/CognitiveServices/_EnableFacialRecognition
+DB: master
+SharedFields:
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T035515Z
