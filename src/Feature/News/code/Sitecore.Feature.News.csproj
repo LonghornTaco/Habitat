@@ -116,7 +116,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Include\Feature\Feature.News.Serialization.config" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\News\NewsTeaser.cshtml" />
     <Content Include="Views\News\NewsPageHeader.cshtml" />
@@ -196,4 +196,3 @@
   </Target>
   -->
 </Project>
-

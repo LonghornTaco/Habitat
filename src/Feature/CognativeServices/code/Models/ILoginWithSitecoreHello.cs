@@ -8,7 +8,7 @@
         string TitleText { get; set; }
         string InformationText { get; set; }
         string SearchingText { get; set; }
-        string LoginButtonText { get; set; }
-        Link UseStandardLoginUrl { get; set; }
+        Link UseStandardLoginLink { get; set; }
+        Link CreateAccountLink { get; set; }
     }
 }

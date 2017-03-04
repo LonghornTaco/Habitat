@@ -116,7 +116,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\Foundation\Foundation.Accounts.config" />
     <None Include="App_Config\Security\domains.config.transform" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

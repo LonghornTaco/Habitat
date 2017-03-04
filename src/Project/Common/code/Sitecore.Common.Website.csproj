@@ -150,7 +150,7 @@
     <Content Include="fonts\open-sans-v13-latin-800.svg" />
     <Content Include="fonts\open-sans-v13-latin-italic.svg" />
     <Content Include="fonts\open-sans-v13-latin-regular.svg" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <Content Include="compilerconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

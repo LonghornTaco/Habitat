@@ -1,0 +1,25 @@
+﻿---
+ID: "5b819adf-2187-4daf-a756-da4b2387c1b3"
+Parent: "69c2d2f3-1330-414d-8d46-4e02a0c0fa0d"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/Common/Content Types/Cognitive Services/Login With Sitecore Hello
+DB: master
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/face_scan.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Type: tree list
+  Value: "{FB12724B-7D92-4621-8270-08DA4E616A56}"
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{F325F6FD-770D-4CCB-930A-7400314F36BB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T190944Z

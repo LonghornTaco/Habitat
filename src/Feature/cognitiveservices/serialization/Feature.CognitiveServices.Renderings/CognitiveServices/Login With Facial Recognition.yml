@@ -4,6 +4,24 @@ Parent: "96ee6e4c-eb8f-49ab-870b-3a97f6d18dbb"
 Template: "2a3e91a0-7987-44b5-ab34-35c2d9de83b9"
 Path: /sitecore/layout/Renderings/Feature/CognitiveServices/Login With Facial Recognition
 DB: master
+SharedFields:
+- ID: "4867d192-326a-4aa4-81ef-ea430e224aff"
+  Hint: Css assets
+  Value: /scripts/CognitiveServices/cognitiveservices.css
+- ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
+  Hint: Controller Action
+  Value: LoginWithFacialRecognition
+- ID: "e514a1eb-ddba-44f7-8528-82ca2280f778"
+  Hint: JavaScript assets
+  Value: |
+    /scripts/CognitiveServices/CognitiveServices.js
+    /scripts/CognitiveServices/EnableFacialRecognition.js
+- ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
+  Hint: Controller
+  Value: Sitecore.Feature.CognitiveServices.Controllers.CognitiveServicesController, Sitecore.Feature.CognitiveServices
+- ID: "fd0dec96-b220-4196-b544-68b11eee727a"
+  Hint: Css inline
+  Value: 
 Languages:
 - Language: en
   Versions:

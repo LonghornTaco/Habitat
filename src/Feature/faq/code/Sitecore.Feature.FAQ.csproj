@@ -100,9 +100,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config">
+    <None Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="Views\web.config" />
     <Content Include="Views\FAQ\FaqAccordion.cshtml" />
     <Content Include="App_Config\include\Feature\Feature.FAQ.Serialization.config" />
@@ -160,4 +160,3 @@
   </Target>
   -->
 </Project>
-

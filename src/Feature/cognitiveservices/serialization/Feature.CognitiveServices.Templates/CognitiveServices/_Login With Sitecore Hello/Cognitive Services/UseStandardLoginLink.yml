@@ -2,7 +2,7 @@
 ID: "def4892f-9bc3-49a4-a610-b449b1cd0cc9"
 Parent: "68c76d6a-8d7c-44f7-98ee-f3dde1cf9d79"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/CognitiveServices/_Login With Sitecore Hello/Cognitive Services/UseStandardLoginUrl
+Path: /sitecore/templates/Feature/CognitiveServices/_Login With Sitecore Hello/Cognitive Services/UseStandardLoginLink
 DB: master
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"

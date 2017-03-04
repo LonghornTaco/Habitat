@@ -163,7 +163,7 @@
     </Content>
     <Content Include="favicon.ico" />
     <None Include="App_Config\Security\domains.config.transform" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="App_Config\Include\Project\z.Habitat.DevSettings.config">
       <SubType>Designer</SubType>
@@ -251,4 +251,3 @@
   <Target Name="AfterBuild">
   </Target> -->
 </Project>
-

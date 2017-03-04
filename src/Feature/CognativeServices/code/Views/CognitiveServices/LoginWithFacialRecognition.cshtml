@@ -1,2 +1,33 @@
-﻿@model dynamic
+﻿@using Sitecore.Foundation.Alerts.Extensions
+@using Sitecore.Foundation.Dictionary.Extensions
+@model Sitecore.Feature.CognitiveServices.Models.ViewModels.LoginWithSitecoreHelloViewModel
 
+@{
+    if (Model?.TitleText == null)
+    {
+        @Html.PageEditorInfo(Html.Sitecore().Dictionary("/CognitiveServices/EnableSitecoreHello/No DataSource", "No DataSource Set"))
+        return;
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2">
+            <h1 class="text-center">@Model.TitleText</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <img class="profile-img center-block" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+                <h3 class="text-center">@Model.SearchingText</h3>
+
+                <form class="form-signin">
+                    <a href="@Model.UseStandardLoginUrl" class="btn btn-lg btn-primary btn-block">
+                        @Model.LoginButtonText
+                    </a>
+                </form>
+            </div>
+            <a href="@Model.CreateAccountUrl" class="text-center new-account">@Model.CreateAccountText</a>
+        </div>
+    </div>
+</div>

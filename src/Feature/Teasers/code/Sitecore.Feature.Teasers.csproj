@@ -111,7 +111,7 @@
     <Content Include="Views\Teasers\TitleSummaryTeaser.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="App_Config\Include\Feature\Feature.Teasers.Serialization.config" />
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <Content Include="Views\Teasers\Headline.cshtml" />
     <Content Include="Views\Teasers\JumbotronHeader.cshtml" />
@@ -190,4 +190,3 @@
   </Target>
   -->
 </Project>
-

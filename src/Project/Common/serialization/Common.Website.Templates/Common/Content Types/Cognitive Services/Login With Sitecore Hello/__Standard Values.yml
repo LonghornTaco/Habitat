@@ -1,0 +1,40 @@
+﻿---
+ID: "f325f6fd-770d-4ccb-930a-7400314f36bb"
+Parent: "5b819adf-2187-4daf-a756-da4b2387c1b3"
+Template: "5b819adf-2187-4daf-a756-da4b2387c1b3"
+Path: /sitecore/templates/Project/Common/Content Types/Cognitive Services/Login With Sitecore Hello/__Standard Values
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20f03d3a-091a-448a-9732-71508c5176f1"
+      Hint: InformationText
+      Value: |
+        <p>Welcome to Sitecore Hello. Looking for you...</p>
+        <p>&nbsp;Please make sure that you are looking directly at the camera and that you are centered. Also please make sure that the browser has access to the webcam enabled.</p>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20170304T191143Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "96ea30de-cd95-49b1-88f3-fd712bdbd55f"
+      Hint: SearchingText
+      Value: Looking for you...
+    - ID: "c8852467-fba5-4219-a9df-1e7dba5367ed"
+      Hint: TitleText
+      Value: Login With Sitecore Hello
+    - ID: "c9b0020c-8383-4597-a0ac-aea237432a82"
+      Hint: LoginButtonText
+      Value: Use Standard Login
+    - ID: "def4892f-9bc3-49a4-a610-b449b1cd0cc9"
+      Hint: UseStandardLoginUrl
+      Value: |
+        <link text="Use Standard Login" anchor="" linktype="internal" class="btn btn-primary" title="" target="" querystring="" id="{BB711E1E-F13F-4176-8231-BA55C8DA126D}" />
+    - ID: "f2759c8b-51c6-469a-a8e0-6ca44ef62123"
+      Hint: CreateAccountLink
+      Value: |
+        <link text="Create an Account" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{87F08F10-D97E-4EE9-8282-73351EE226AF}" />
