@@ -11,6 +11,8 @@
         public IHtmlString EnableFacialRecognitionLabel { get; set; }
         public IHtmlString WebcamLabel { get; set; }
         public IHtmlString WebcamAccessWarningLabel { get; set; }
+        public IHtmlString SaveErrorLabel { get; set; }
+        public IHtmlString SaveSuccessLabel { get; set; }
 
         public string EnableFacialRecognitionPlaceholderText { get; set; }
 

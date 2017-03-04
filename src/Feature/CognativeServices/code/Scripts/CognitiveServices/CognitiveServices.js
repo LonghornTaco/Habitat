@@ -38,7 +38,6 @@
     };
 
     webcamSnapshotTaker.prototype.attachWebcamStreamToVideoPlayer = function (stream) {
-        // Attach the video stream to the video element and autoplay.
         this.videoPlayerElement.srcObject = stream;
         this.videoTracks = stream.getVideoTracks();
     };
@@ -50,8 +49,9 @@
             0,
             this.snapshotCanvasElement.width,
             this.snapshotCanvasElement.height);
+    };
 
-        // Stop all video streams.
+    webcamSnapshotTaker.prototype.switchToSnapshot = function () {
         this.stopWebcamStream();
 
         this.hideVideoPlayer();

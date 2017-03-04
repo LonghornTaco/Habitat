@@ -43,12 +43,12 @@
         <input type="button" id="saveFace" class="btn btn-primary btn-lg btn-block" value="@Model.SaveButtonText" />
 
         <div id="saveErrorSection" class="alert alert-danger" style="display: none;">
-            There was an error while saving the face. Please try again.
+            @Model.SaveErrorLabel
         </div>
     </div>
 
     <div id="saveSuccessSection" class="alert alert-success" style="display: none;">
-        Face successfully saved. Enjoy the frictionless login!
+        @Model.SaveSuccessLabel
     </div>
 
 }

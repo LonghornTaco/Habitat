@@ -9,6 +9,17 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "20f03d3a-091a-448a-9732-71508c5176f1"
+      Hint: InformationText
+      Value: |
+        <p>Welcome to Sitecore Hello. Looking for you...</p>
+        <p>Please make sure that you are looking directly at the camera and that you are centered.</p>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20170304T193145Z
+    - ID: "2f272e56-b8fa-460c-a8b9-4740c773432b"
+      Hint: WebcamAccessWarning
+      Value: Webcam access is required for Sitecore Hello to work. Please enable and reload the page. Thanks.
+    - ID: "48649e21-9f5e-449b-a415-343121f1c7ac"
+      Hint: LoginFailedText
+      Value: We're unable to recognize your face. Please proceed to standard login.

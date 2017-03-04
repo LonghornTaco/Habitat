@@ -19,5 +19,9 @@
         string EnableFacialRecognitionPlaceholderText { get; set; }
 
         string WebcamAccessWarning { get; set; }
+
+        string SaveErrorText { get; set; }
+
+        string SaveSuccessText { get; set; }
     }
 }

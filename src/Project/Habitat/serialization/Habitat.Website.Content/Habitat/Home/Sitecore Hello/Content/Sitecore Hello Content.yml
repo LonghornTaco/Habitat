@@ -9,6 +9,20 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "08c2cde4-cde7-4ef8-bcd3-cea00ebb4373"
+      Hint: WebcamAccessWarning
+      Value: Webcam access is required for Sitecore Hello to work. Please enable and click the button again. Thanks.
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20170304T055042Z
+    - ID: "818d09e5-c59d-45ea-a103-2d1831058129"
+      Hint: SaveSuccessText
+      Value: "Face successfully saved. Enjoy the frictionless login!"
+    - ID: "c8c9676f-4313-4098-87f2-2c7eaea2d026"
+      Hint: InformationText
+      Value: |
+        <p>Please make sure that your face is centered in the image and that you are looking directly at the camera. </p>
+        <p>When you are ready click the&nbsp;<strong>Save Face</strong>&nbsp;button and your profile will be enabled for logging in via facial recognition. Welcome to Sitecore Hello!</p>
+    - ID: "cf288a43-7b75-4a72-b542-305423b9c513"
+      Hint: SaveErrorText
+      Value: There was an error while saving the face. Please try again.
