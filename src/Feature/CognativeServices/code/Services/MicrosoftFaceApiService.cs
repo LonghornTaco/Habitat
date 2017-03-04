@@ -18,13 +18,9 @@ namespace Sitecore.Feature.CognitiveServices.Services
       private string _detectApi = "detect";
       private string _personApi = "persons";
       private string _personGroupApi = "persongroups";
-      private string _persistedFacesApi = "persistedFaces";
-      private string _verifyApi = "verify";
-      private string _findSimilarApi = "findsimilars";
-      private string _faceListApi = "facelists";
+      private string _identifyApi = "identify";
 
       private string _personGroupId = "eff83b97-845f-4fd0-9bbf-8ac8d5696bce";
-      private string _faceListId = "4bb6dc3e-6426-4d8f-bda2-4bf1f98a946c";
 
       public Face[] Detect(string base64Image)
       {
@@ -79,21 +75,6 @@ namespace Sitecore.Feature.CognitiveServices.Services
                         throw new InvalidOperationException($"There was an error saving an image to personId {createPersonResult.PersonId.ToString()}: {error.Code} - {error.Message}");
                      }
                   }
-
-                  using (var imageContent = new ByteArrayContent(imageByteData))
-                  {
-                     imageContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-
-                     uri = $"{_apiRoot}/{_faceListApi}/{_faceListId}/{_persistedFacesApi}";
-                     var addToFaceListResponse = client.PostAsync(uri, imageContent).Result;
-                     var addToFaceListResult = addToFaceListResponse.Content.ReadAsStringAsync().Result;
-
-                     if (!addToFaceListResponse.IsSuccessStatusCode)
-                     {
-                        var error = JsonConvert.DeserializeObject<Error>(addToFaceListResult);
-                        throw new InvalidOperationException($"There was an error adding the face to the face list for {createPersonResult.PersonId.ToString()}: {error.Code} - {error.Message}");
-                     }
-                  }
                }
             }
             else
@@ -113,9 +94,54 @@ namespace Sitecore.Feature.CognitiveServices.Services
          throw new NotImplementedException();
       }
 
-      public string VerifyPerson(string base64ImageString)
+      public string VerifyPerson(string base64Image)
       {
-         throw new NotImplementedException();
+         var personIdToReturn = string.Empty;
+
+         if (string.IsNullOrWhiteSpace(base64Image)) throw new ArgumentException("base64Image cannot be null");
+
+         var faces = DetectFaces(base64Image);
+
+         if (faces.Length == 1)
+         {
+            var data = JsonConvert.SerializeObject(new
+            {
+               personGroupId = _personGroupId,
+               faceIds = new[] { faces[0].FaceId },
+               maxNumOfCandidatesReturned = 1,
+               confidenceThreshold = 0.9
+            });
+            using (var client = new HttpClient())
+            {
+               client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
+
+               var uri = $"{_apiRoot}/{_identifyApi}";
+               var content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+               var response = client.PostAsync(uri, content).Result;
+               var result = response.Content.ReadAsStringAsync().Result;
+
+               if (response.IsSuccessStatusCode)
+               {
+                  var identifyResponse = JsonConvert.DeserializeObject<List<IdentifyResponse>>(result);
+
+                  var candidates = identifyResponse.FirstOrDefault(c => c.FaceId == faces[0].FaceId.ToString());
+                  var candidate = candidates?.Candidates.FirstOrDefault(p => p.Confidence > 0.9);
+
+                  personIdToReturn = candidate?.PersonId.ToString() ?? string.Empty;
+               }
+               else
+               {
+                  var error = JsonConvert.DeserializeObject<Error>(result);
+                  throw new InvalidOperationException($"There was an error identifying the user: {error.Code} - {error.Message}");
+               }
+            }
+         }
+         else
+         {
+            throw new InvalidOperationException($"More than one face was detected in the image submitted. Please submit an image with only one face.");
+         }
+
+         return personIdToReturn;
       }
 
       private Face[] DetectFaces(string base64Image)

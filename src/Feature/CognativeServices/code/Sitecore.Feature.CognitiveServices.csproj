@@ -199,6 +199,7 @@
     <Compile Include="Models\Repository\CreatePersonResponse.cs" />
     <Compile Include="Models\Repository\Error.cs" />
     <Compile Include="Models\Repository\FindSimilarResponse.cs" />
+    <Compile Include="Models\Repository\IdentifyResponse.cs" />
     <Compile Include="Models\Repository\VerifyResponse.cs" />
     <Compile Include="Models\ViewModels\EnableFacialRecognitionViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginWithSitecoreHelloViewModel.cs" />
