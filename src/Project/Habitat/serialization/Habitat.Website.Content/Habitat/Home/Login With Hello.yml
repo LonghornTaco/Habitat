@@ -52,6 +52,14 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
+              uid="{1DF746C3-2D29-43E6-9DE2-05622DED6F97}">
+              <p:d />
+            </r>
+            <r
+              uid="{3CDF4DD8-28A4-4185-8C09-A73CAA4633F7}">
+              <p:d />
+            </r>
+            <r
               uid="{CD38F41A-B3D7-4755-9936-80D9C2D41C69}"
               s:ds="{72D0A405-F2F7-46B7-84AC-0101A4618EBD}"
               s:id="{EFE100A5-642E-4305-8C50-E52AA8B13330}" />

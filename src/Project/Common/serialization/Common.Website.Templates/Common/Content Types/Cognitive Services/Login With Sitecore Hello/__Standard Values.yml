@@ -34,3 +34,7 @@ Languages:
       Hint: UseStandardLoginUrl
       Value: |
         <link text="Use Standard Login" anchor="" linktype="internal" class="btn btn-primary" title="" target="" querystring="" id="{BB711E1E-F13F-4176-8231-BA55C8DA126D}" />
+    - ID: "f2759c8b-51c6-469a-a8e0-6ca44ef62123"
+      Hint: CreateAccountLink
+      Value: |
+        <link text="Create an Account" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{87F08F10-D97E-4EE9-8282-73351EE226AF}" />

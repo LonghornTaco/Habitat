@@ -168,6 +168,7 @@
     </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <Content Include="Scripts\CognitiveServices\cognitiveservices.css" />
     <Content Include="Scripts\CognitiveServices\EnableFacialRecognition.js" />
     <Content Include="Scripts\CognitiveServices\CognitiveServices.js" />
     <Content Include="Views\Web.config" />

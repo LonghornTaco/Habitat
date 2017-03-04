@@ -73,8 +73,10 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
             viewModel.TitleText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.TitleText);
             viewModel.InformationText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.InformationText);
             viewModel.SearchingText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.SearchingText);
-            viewModel.LoginButtonText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.LoginButtonText);
-            viewModel.UseStandardLoginUrl = dataSourceItem.UseStandardLoginUrl?.Url ?? string.Empty;
+            viewModel.LoginButtonText = dataSourceItem.UseStandardLoginLink?.Text ?? string.Empty;
+            viewModel.UseStandardLoginUrl = dataSourceItem.UseStandardLoginLink?.Url ?? string.Empty;
+            viewModel.CreateAccountText = dataSourceItem.CreateAccountLink?.Text ?? string.Empty;
+            viewModel.CreateAccountUrl = dataSourceItem.CreateAccountLink?.Url ?? string.Empty;
 
             return this.View(viewModel);
         }
