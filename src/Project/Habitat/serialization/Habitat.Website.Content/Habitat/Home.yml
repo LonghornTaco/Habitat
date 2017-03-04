@@ -28,6 +28,21 @@ SharedFields:
           value="3" />
       </profile>
     </tracking>
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Type: layout
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B1C30F34-B74C-42FF-9FDC-07A7D9C56431}"
+          p:after="*[1=2]"
+          s:id="{1A98548C-FFB7-4DE6-BC92-645A07655FD3}"
+          s:ph="navbar-activity" />
+      </d>
+    </r>
 Languages:
 - Language: da
   Versions:

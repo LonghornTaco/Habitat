@@ -6,9 +6,9 @@
     using Sitecore.Diagnostics;
     using Sitecore.Feature.Accounts.Attributes;
     using Sitecore.Feature.Accounts.Models;
-    using Sitecore.Feature.Accounts.Repositories;
     using Sitecore.Feature.Accounts.Services;
     using Sitecore.Foundation.Accounts.Attributes;
+    using Sitecore.Foundation.Accounts.Repositories;
     using Sitecore.Foundation.Accounts.Services;
     using Sitecore.Foundation.Alerts.Extensions;
     using Sitecore.Foundation.Alerts.Models;
