@@ -11,12 +11,20 @@ SharedFields:
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Project/Common/Content Types/Cognitive Services/Enable Facial Recognition
+- ID: "4867d192-326a-4aa4-81ef-ea430e224aff"
+  Hint: Css assets
+  Value: 
+- ID: "94069f66-609c-48b0-8281-521c30fb269d"
+  Hint: Open Properties after Add
+  Value: "-"
 - ID: "ded9e431-3604-4921-a4b3-a6ec7636a5b6"
   Hint: Controller Action
   Value: EnableFacialRecognition
 - ID: "e514a1eb-ddba-44f7-8528-82ca2280f778"
   Hint: JavaScript assets
-  Value: /scripts/CognitiveServices/CognitiveServices.js
+  Value: |
+    /scripts/CognitiveServices/CognitiveServices.js
+    /scripts/CognitiveServices/EnableFacialRecognition.js
 - ID: "e64ad073-dfcc-4d20-8c0b-fe5aa6226cd7"
   Hint: Controller
   Value: Sitecore.Feature.CognitiveServices.Controllers.CognitiveServicesController, Sitecore.Feature.CognitiveServices

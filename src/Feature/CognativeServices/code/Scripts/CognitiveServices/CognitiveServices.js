@@ -1,121 +1,112 @@
-﻿(function($) {
+﻿(function (window) {
 
-    var webcamCapture = {
-        videoTracks: undefined,
+    function webcamSnapshotTaker() {
+    }
 
-        initialize: function(options) {
-            this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
-            this.videoPlayerElement = document.getElementById(options.videoPlayer);
-            this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
-            this.webcamPanel = document.getElementById(options.webcamPanel);
+    webcamSnapshotTaker.prototype.initialize = function (options) {
+        this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
+        this.videoPlayerElement = document.getElementById(options.videoPlayer);
+        this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
+        this.webcamSectionElement = document.getElementById(options.webcamSection);
 
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(this.attachWebcamStreamToVideoPlayer.bind(this))
-                .then(this.hideWebcamAccessErrorSection.bind(this))
-                .then(this.displayVideoPlayer.bind(this))
-                .catch(this.handleWebcamAccessError.bind(this));
-        },
+        this.teardown();
 
-        teardown: function() {
-            this.stopWebcamStream();
-            this.hideWebcamAccessErrorSection();
-            this.hideVideoPlayer();
-            this.hideSnapshot();
-        },
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(this.attachWebcamStreamToVideoPlayer.bind(this))
+            .then(this.hideWebcamAccessErrorSection.bind(this))
+            .then(this.displayVideoPlayer.bind(this))
+            .then(this.displayWebcamSection.bind(this))
+            .catch(this.handleWebcamAccessError.bind(this));
+    };
 
-        hide: function(element) {
-            element.classList.add("hidden");
-        },
+    webcamSnapshotTaker.prototype.teardown = function () {
+        this.stopWebcamStream();
+        this.hideWebcamAccessErrorSection();
+        this.hideVideoPlayer();
+        this.hideSnapshot();
+        this.hideWebcamSection();
+    };
 
-        show: function(element) {
-            element.classList.remove("hidden");
-        },
+    webcamSnapshotTaker.prototype.isInitialized = function () {
+        return !!this.videoTracks;
+    };
 
-        attachWebcamStreamToVideoPlayer: function(stream) {
-            // Attach the video stream to the video element and autoplay.
-            this.videoPlayerElement.srcObject = stream;
-            this.videoTracks = stream.getVideoTracks();
-        },
+    webcamSnapshotTaker.prototype.hide = function (element) {
+        element.classList.add("hidden");
+    };
 
-        captureSnapshot: function() {
-            var context = this.snapshotCanvasElement.getContext("2d");
-            context.drawImage(this.videoPlayerElement,
-                0,
-                0,
-                this.snapshotCanvasElement.width,
-                this.snapshotCanvasElement.height);
+    webcamSnapshotTaker.prototype.show = function (element) {
+        element.classList.remove("hidden");
+    };
 
-            // Stop all video streams.
-            this.stopWebcamStream();
+    webcamSnapshotTaker.prototype.attachWebcamStreamToVideoPlayer = function (stream) {
+        // Attach the video stream to the video element and autoplay.
+        this.videoPlayerElement.srcObject = stream;
+        this.videoTracks = stream.getVideoTracks();
+    };
 
-            this.hideVideoPlayer();
-            this.displaySnapshot();
-        },
+    webcamSnapshotTaker.prototype.captureSnapshot = function () {
+        var context = this.snapshotCanvasElement.getContext("2d");
+        context.drawImage(this.videoPlayerElement,
+            0,
+            0,
+            this.snapshotCanvasElement.width,
+            this.snapshotCanvasElement.height);
 
-        getSnapshot: function() {
-            return this.snapshotCanvasElement.toDataURL("image/jpeg", 1.0);
-        },
+        // Stop all video streams.
+        this.stopWebcamStream();
 
-        stopWebcamStream: function() {
-            this.videoTracks.forEach(function(track) {
+        this.hideVideoPlayer();
+        this.displaySnapshot();
+    };
+
+    webcamSnapshotTaker.prototype.getSnapshot = function () {
+        return this.snapshotCanvasElement.toDataURL("image/jpeg", 1.0);
+    };
+
+    webcamSnapshotTaker.prototype.stopWebcamStream = function () {
+        if (this.isInitialized()) {
+            this.videoTracks.forEach(function (track) {
                 track.stop();
             });
-        },
-
-        displayVideoPlayer: function() {
-            this.show(this.webcamPanel);
-        },
-
-        hideVideoPlayer: function() {
-            this.hide(this.videoPlayerElement);
-        },
-
-        displaySnapshot: function() {
-            this.show(this.snapshotCanvasElement);
-        },
-
-        hideSnapshot: function() {
-            this.hide(this.snapshotCanvasElement);
-        },
-
-        hideWebcamAccessErrorSection: function() {
-            this.hide(this.webcamAccessErrorSectionElement);
-        },
-
-        handleWebcamAccessError: function(error) {
-            if (error.name === "PermissionDeniedError") {
-                this.show(this.webcamAccessErrorSectionElement);
-            }
+            this.videoTracks = undefined;
         }
     };
 
+    webcamSnapshotTaker.prototype.displayWebcamSection = function () {
+        this.show(this.webcamSectionElement);
+    };
 
-    $(function() {
-        var checkboxElement = document.getElementById("EnableFacialRecognition");
+    webcamSnapshotTaker.prototype.hideWebcamSection = function () {
+        this.hide(this.webcamSectionElement);
+    };
 
-        checkboxElement.addEventListener("click", function () {
-            if (checkboxElement.checked) {
-                webcamCapture.initialize({
-                    webcamAccessErrorSection: "webcamAccessErrorSection",
-                    videoPlayer: "player",
-                    snapshotCanvas: "snapshot",
-                    webcamPanel: "webcamPanel"
-                });
-            } else if (webcamCapture.videoTracks) {
-                webcamCapture.teardown();
-            }
-        });
+    webcamSnapshotTaker.prototype.displayVideoPlayer = function () {
+        this.show(this.videoPlayerElement);
+    };
 
-        function onSaveClick() {
-            if (checkboxElement.checked) {
-                webcamCapture.captureSnapshot();
-                var snapshot = webcamCapture.getSnapshot();
-                // TODO: Set a hidden field value with the snapshot before submit.
-                $("#CapturedImage").val(snapshot);
-            }
+    webcamSnapshotTaker.prototype.hideVideoPlayer = function () {
+        this.hide(this.videoPlayerElement);
+    };
 
-            return true;
+    webcamSnapshotTaker.prototype.displaySnapshot = function () {
+        this.show(this.snapshotCanvasElement);
+    };
+
+    webcamSnapshotTaker.prototype.hideSnapshot = function () {
+        this.hide(this.snapshotCanvasElement);
+    };
+
+    webcamSnapshotTaker.prototype.hideWebcamAccessErrorSection = function () {
+        this.hide(this.webcamAccessErrorSectionElement);
+    };
+
+    webcamSnapshotTaker.prototype.handleWebcamAccessError = function (error) {
+        if (error.name === "PermissionDeniedError") {
+            this.show(this.webcamAccessErrorSectionElement);
         }
-    });
+    };
 
-})(jQuery);
+    window.WebcamSnapshotTaker = webcamSnapshotTaker;
+
+})(window);
