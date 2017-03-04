@@ -3,7 +3,7 @@
     public interface IFaceApiService
     {
         string CreatePerson();
-        void AddPhotoToPerson();
-        string VerifyPerson();
+        void AddPhotoToPerson(string personId, string base64ImageString);
+        string VerifyPerson(string base64ImageString);
     }
 }
