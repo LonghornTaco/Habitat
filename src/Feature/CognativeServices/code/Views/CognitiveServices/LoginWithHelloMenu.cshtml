@@ -1,0 +1,18 @@
+﻿@model Sitecore.Mvc.Presentation.RenderingModel
+
+@{
+    if (Model.Item == null)
+    {
+        return;
+    }
+    var accountSettings = Sitecore.Foundation.Accounts.Services.AccountsSettingsService.Instance.GetAccountsSettingsItem(Model.Item);
+    if (accountSettings == null)
+    {
+        return;
+    }
+}
+<li class="dropdown hidden-xs">
+    <a href="/login-with-hello" class="btn">
+        <i class="fa fa-user"></i>
+    </a>
+</li>

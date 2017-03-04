@@ -174,8 +174,6 @@
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Services\ContactProfileService.cs" />
     <Compile Include="Services\IContactProfileService.cs" />
-    <Compile Include="Services\AccountTrackerService.cs" />
-    <Compile Include="Services\IAccountTrackerService.cs" />
     <Compile Include="Services\IProfileSettingsService.cs" />
     <Compile Include="Services\IUserProfileProvider.cs" />
     <Compile Include="Services\IUserProfileService.cs" />
@@ -191,8 +189,6 @@
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Models\PasswordResetInfo.cs" />
     <Compile Include="Models\RegistrationInfo.cs" />
-    <Compile Include="Repositories\AccountRepository.cs" />
-    <Compile Include="Repositories\IAccountRepository.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -134,10 +134,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ContactProfileProvider.cs" />
     <Compile Include="Providers\IContactProfileProvider.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\IAccountRepository.cs" />
     <Compile Include="Services\AccountsSettingsService.cs" />
+    <Compile Include="Services\AccountTrackerService.cs" />
     <Compile Include="Services\AuthenticationStatus.cs" />
     <Compile Include="Services\GetRedirectUrlService.cs" />
     <Compile Include="Services\IAccountsSettingsService.cs" />
+    <Compile Include="Services\IAccountTrackerService.cs" />
     <Compile Include="Services\IGetRedirectUrlService.cs" />
     <Compile Include="Templates.cs" />
   </ItemGroup>

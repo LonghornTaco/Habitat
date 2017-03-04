@@ -11,5 +11,7 @@
         public string UseStandardLoginUrl { get; set; }
         public string CreateAccountText { get; set; }
         public string CreateAccountUrl { get; set; }
+
+        public string CapturedImage { get; set; }
     }
 }
