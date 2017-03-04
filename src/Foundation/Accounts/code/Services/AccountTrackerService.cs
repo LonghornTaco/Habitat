@@ -1,11 +1,10 @@
-﻿namespace Sitecore.Feature.Accounts.Services
+﻿namespace Sitecore.Foundation.Accounts.Services
 {
-  using Sitecore.Configuration;
-  using Sitecore.Data;
-  using Sitecore.Foundation.Accounts.Services;
-  using Sitecore.Foundation.SitecoreExtensions.Services;
+    using Sitecore.Configuration;
+    using Sitecore.Data;
+    using Sitecore.Foundation.SitecoreExtensions.Services;
 
-  public class AccountTrackerService : IAccountTrackerService
+    public class AccountTrackerService : IAccountTrackerService
   {
     private readonly IAccountsSettingsService accountsSettingsService;
     private readonly ITrackerService trackerService;

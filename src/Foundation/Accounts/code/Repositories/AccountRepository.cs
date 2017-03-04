@@ -1,9 +1,9 @@
-﻿namespace Sitecore.Feature.Accounts.Repositories
+﻿namespace Sitecore.Foundation.Accounts.Repositories
 {
     using System;
     using System.Web.Security;
     using Sitecore.Diagnostics;
-    using Sitecore.Feature.Accounts.Services;
+    using Sitecore.Foundation.Accounts.Services;
     using Sitecore.Security.Accounts;
     using Sitecore.Security.Authentication;
 

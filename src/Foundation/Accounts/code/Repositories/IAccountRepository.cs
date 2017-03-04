@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Feature.Accounts.Repositories
+﻿namespace Sitecore.Foundation.Accounts.Repositories
 {
     using Sitecore.Security.Accounts;
 
