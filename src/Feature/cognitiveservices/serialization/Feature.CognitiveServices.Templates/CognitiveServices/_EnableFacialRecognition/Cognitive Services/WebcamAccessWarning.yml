@@ -1,8 +1,8 @@
 ﻿---
-ID: "67e64287-616f-4a77-b3b1-7c02d432604a"
+ID: "08c2cde4-cde7-4ef8-bcd3-cea00ebb4373"
 Parent: "783bbed0-e5df-464b-845e-feac07af4ea7"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/CognitiveServices/_EnableFacialRecognition/Cognitive Services/WebcamLabel
+Path: /sitecore/templates/Feature/CognitiveServices/_EnableFacialRecognition/Cognitive Services/WebcamAccessWarning
 DB: master
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
@@ -10,7 +10,7 @@ SharedFields:
   Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 600
+  Value: 800
 Languages:
 - Language: en
   Versions:
@@ -18,7 +18,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20170304T042820Z
+      Value: 20170304T122519Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

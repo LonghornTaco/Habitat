@@ -1,9 +1,16 @@
-﻿@using Sitecore.Foundation.SitecoreExtensions.Extensions
+﻿@using Sitecore.Foundation.Alerts.Extensions
+@using Sitecore.Foundation.Dictionary.Extensions
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
 @using Sitecore.Mvc.Configuration
 @model Sitecore.Feature.CognitiveServices.Models.ViewModels.EnableFacialRecognitionViewModel
 
-<h2>@Model.TitleText</h2>
-@Model.InformationText
+@{
+    if (Model?.SaveButtonText == null)
+    {
+        @Html.PageEditorInfo(Html.Sitecore().Dictionary("/CognitiveServices/EnableSitecoreHello/No DataSource", "No DataSource Set"))
+        return;
+    }
+}
 
 @using (Html.BeginRouteForm(MvcSettings.SitecoreRouteName, FormMethod.Post, new
 {
@@ -16,59 +23,30 @@
         <label for="@nameof(Model.EnableFacialRecognition)" class="control-label">@Model.EnableFacialRecognitionLabel</label>
 
         @Html.CheckBoxFor(x => x.EnableFacialRecognition, new
-        {
-            @class = "form-control",
-            @placeholder = Model.EnableFacialRecognitionPlaceholderText
-        })
+       {
+           @class = "form-control",
+           @placeholder = Model.EnableFacialRecognitionPlaceholderText
+       })
 
         @Html.ValidationMessageFor(x => x.EnableFacialRecognition, "", new
-        {
-            @class = "help-block"
-        }, "p")
+       {
+           @class = "help-block"
+       }, "p")
     </div>
 
-    <style>
-        .hellohidden {
-          display: none;
-        }
-    </style>
-    <div id="webcamAccessErrorSection" class="hellohidden">
-        Webcam access is required for Sitecore Hello to work. Please enable and check the box again. Thanks.
-    </div>
-    <video id="player" class="hellohidden" width="320" height="240" autoplay></video>
-    <canvas id="snapshot" class="hellohidden" width="320" height="240"></canvas>
 
-    <div class="form-group @Html.ValidationErrorFor(x => x.FaceImageFile, "has-error")">
-        <label class="control-label" for="@nameof(Model.FaceImageFile)"></label>
-        @Html.EditorFor(x => x.FaceImageFile)
+    <div id="webcamAccessErrorSection" class="alert alert-warning">
+        @Model.WebcamAccessWarningLabel
+    </div>
+    <div id="webcamDisplay" class="well-sm hidden">
+        <video id="player" width="320" height="240" autoplay class="center-block"></video>
+        <canvas id="snapshot" width="320" height="240" class="center-block hidden"></canvas>
     </div>
 
-    <script src="/scripts/CognitiveServices/CognitiveServices.js" language="javascript" type="text/javascript"></script>
-    <script language="javascript" type="text/javascript">
-        var checkboxElement = document.getElementById('@(nameof(Model.EnableFacialRecognition))');
+    <div class="form-group @Html.ValidationErrorFor(x => x.CapturedImage, "has-error")">
+        <label class="control-label" for="@nameof(Model.CapturedImage)">@Model.WebcamLabel</label>
+        @Html.HiddenFor(x => x.CapturedImage);
+    </div>
 
-        checkboxElement.addEventListener('click', function () {
-            if (checkboxElement.checked) {
-                webcamCapture.initialize({
-                    webcamAccessErrorSection: 'webcamAccessErrorSection',
-                    videoPlayer: 'player',
-                    snapshotCanvas: 'snapshot'
-                });
-            } else if (webcamCapture.videoTracks) {
-                webcamCapture.teardown();
-            }
-        });
-
-        function onSaveClick() {
-            if (checkboxElement.checked) {
-                webcamCapture.captureSnapshot();
-                var snapshot = webcamCapture.getSnapshot();
-                // TODO: Set a hidden field value with the snapshot before submit.
-            }
-
-            return true;
-        }
-    </script>
-
-    <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return onSaveClick();" value="@Model.SaveButtonText"/>
+    <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="return onSaveClick();" value="@Model.SaveButtonText" />
 }

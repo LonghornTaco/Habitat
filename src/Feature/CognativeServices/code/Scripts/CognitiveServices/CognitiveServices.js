@@ -1,83 +1,118 @@
-﻿var webcamCapture = {
-    videoTracks: undefined,
+﻿(function($) {
 
-    initialize: function (options) {
-        this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
-        this.videoPlayerElement = document.getElementById(options.videoPlayer);
-        this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
+    var webcamCapture = {
+        videoTracks: undefined,
 
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(this.attachWebcamStreamToVideoPlayer.bind(this))
-            .then(this.hideWebcamAccessErrorSection.bind(this))
-            .then(this.displayVideoPlayer.bind(this))
-            .catch(this.handleWebcamAccessError.bind(this));
-    },
+        initialize: function(options) {
+            this.webcamAccessErrorSectionElement = document.getElementById(options.webcamAccessErrorSection);
+            this.videoPlayerElement = document.getElementById(options.videoPlayer);
+            this.snapshotCanvasElement = document.getElementById(options.snapshotCanvas);
 
-    teardown: function () {
-        this.stopWebcamStream();
-        this.hideWebcamAccessErrorSection();
-        this.hideVideoPlayer();
-        this.hideSnapshot();
-    },
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(this.attachWebcamStreamToVideoPlayer.bind(this))
+                .then(this.hideWebcamAccessErrorSection.bind(this))
+                .then(this.displayVideoPlayer.bind(this))
+                .catch(this.handleWebcamAccessError.bind(this));
+        },
 
-    hide: function (element) {
-        element.classList.add("hellohidden");
-    },
+        teardown: function() {
+            this.stopWebcamStream();
+            this.hideWebcamAccessErrorSection();
+            this.hideVideoPlayer();
+            this.hideSnapshot();
+        },
 
-    show: function (element) {
-        element.classList.remove("hellohidden");
-    },
+        hide: function(element) {
+            element.classList.add("hidden");
+        },
 
-    attachWebcamStreamToVideoPlayer: function (stream) {
-        // Attach the video stream to the video element and autoplay.
-        this.videoPlayerElement.srcObject = stream;
-        this.videoTracks = stream.getVideoTracks();
-    },
+        show: function(element) {
+            element.classList.remove("hidden");
+        },
 
-    captureSnapshot: function () {
-        var context = this.snapshotCanvasElement.getContext('2d');
-        context.drawImage(this.videoPlayerElement, 0, 0, this.snapshotCanvasElement.width, this.snapshotCanvasElement.height);
+        attachWebcamStreamToVideoPlayer: function(stream) {
+            // Attach the video stream to the video element and autoplay.
+            this.videoPlayerElement.srcObject = stream;
+            this.videoTracks = stream.getVideoTracks();
+        },
 
-        // Stop all video streams.
-        this.stopWebcamStream();
+        captureSnapshot: function() {
+            var context = this.snapshotCanvasElement.getContext("2d");
+            context.drawImage(this.videoPlayerElement,
+                0,
+                0,
+                this.snapshotCanvasElement.width,
+                this.snapshotCanvasElement.height);
 
-        this.hideVideoPlayer();
-        this.displaySnapshot();
-    },
+            // Stop all video streams.
+            this.stopWebcamStream();
 
-    getSnapshot: function () {
-        return this.snapshotCanvasElement.toDataURL('image/jpeg', 1.0);
-    },
+            this.hideVideoPlayer();
+            this.displaySnapshot();
+        },
 
-    stopWebcamStream: function () {
-        this.videoTracks.forEach(function (track) {
-            track.stop();
-        });
-    },
+        getSnapshot: function() {
+            return this.snapshotCanvasElement.toDataURL("image/jpeg", 1.0);
+        },
 
-    displayVideoPlayer: function () {
-        this.show(this.videoPlayerElement);
-    },
+        stopWebcamStream: function() {
+            this.videoTracks.forEach(function(track) {
+                track.stop();
+            });
+        },
 
-    hideVideoPlayer: function () {
-        this.hide(this.videoPlayerElement);
-    },
+        displayVideoPlayer: function() {
+            this.show(this.videoPlayerElement);
+        },
 
-    displaySnapshot: function () {
-        this.show(this.snapshotCanvasElement);
-    },
+        hideVideoPlayer: function() {
+            this.hide(this.videoPlayerElement);
+        },
 
-    hideSnapshot: function () {
-        this.hide(this.snapshotCanvasElement);
-    },
+        displaySnapshot: function() {
+            this.show(this.snapshotCanvasElement);
+        },
 
-    hideWebcamAccessErrorSection: function () {
-        this.hide(this.webcamAccessErrorSectionElement);
-    },
+        hideSnapshot: function() {
+            this.hide(this.snapshotCanvasElement);
+        },
 
-    handleWebcamAccessError: function (error) {
-        if (error.name === "PermissionDeniedError") {
-            this.show(this.webcamAccessErrorSectionElement);
+        hideWebcamAccessErrorSection: function() {
+            this.hide(this.webcamAccessErrorSectionElement);
+        },
+
+        handleWebcamAccessError: function(error) {
+            if (error.name === "PermissionDeniedError") {
+                this.show(this.webcamAccessErrorSectionElement);
+            }
         }
-    }
-};
+    };
+
+
+    $(function() {
+        var checkboxElement = document.getElementById("EnableFacialRecognition");
+
+        checkboxElement.addEventListener("click", function () {
+            if (checkboxElement.checked) {
+                webcamCapture.initialize({
+                    webcamAccessErrorSection: "webcamAccessErrorSection",
+                    videoPlayer: "player",
+                    snapshotCanvas: "snapshot"
+                });
+            } else if (webcamCapture.videoTracks) {
+                webcamCapture.teardown();
+            }
+        });
+
+        function onSaveClick() {
+            if (checkboxElement.checked) {
+                webcamCapture.captureSnapshot();
+                var snapshot = webcamCapture.getSnapshot();
+                // TODO: Set a hidden field value with the snapshot before submit.
+            }
+
+            return true;
+        }
+    });
+
+})(jQuery);

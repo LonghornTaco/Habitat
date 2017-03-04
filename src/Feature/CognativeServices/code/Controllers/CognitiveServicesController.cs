@@ -36,15 +36,16 @@ namespace Sitecore.Feature.CognitiveServices.Controllers
 
             if (dataSourceItem == null)
             {
-                return this.View(viewModel);
+                return this.View();
             }
 
             viewModel.EnableFacialRecognitionLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.EnableFacialRecognitionLabel);
             viewModel.InformationText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.InformationText);
             viewModel.SaveButtonText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.SaveButtonText);
             viewModel.TitleText = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.TitleText);
-            viewModel.WebCamLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebCamLabel);
+            viewModel.WebcamLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebcamLabel);
             viewModel.EnableFacialRecognitionPlaceholderText = dataSourceItem.EnableFacialRecognitionPlaceholderText;
+            viewModel.WebcamAccessWarningLabel = this.propertyBuilder.BuildHtmlString(dataSourceItem, x => x.WebcamAccessWarning);
 
             return this.View(viewModel);
         }

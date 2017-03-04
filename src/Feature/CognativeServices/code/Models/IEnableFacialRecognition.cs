@@ -14,8 +14,10 @@
 
         string EnableFacialRecognitionLabel { get; set; }
 
-        string WebCamLabel { get; set; }
+        string WebcamLabel { get; set; }
 
         string EnableFacialRecognitionPlaceholderText { get; set; }
+
+        string WebcamAccessWarning { get; set; }
     }
 }

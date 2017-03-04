@@ -9,6 +9,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "08c2cde4-cde7-4ef8-bcd3-cea00ebb4373"
+      Hint: WebcamAccessWarning
+      Value: Webcam access is required for Sitecore Hello to work. Please enable and check the box again. Thanks.
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20170304T052709Z
