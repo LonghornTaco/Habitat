@@ -14,6 +14,7 @@ namespace Sitecore.Feature.CognitiveServices.Services
    public class MicrosoftFaceApiService : IFaceApiService
    {
       private readonly ICognitiveServicesConfiguration _configuration;
+      private double _confidenceThreshold = 0.5;
 
       public MicrosoftFaceApiService(ICognitiveServicesConfiguration configuration)
       {
@@ -28,13 +29,7 @@ namespace Sitecore.Feature.CognitiveServices.Services
 
          return faces;
       }
-
-      [Obsolete]
-      public string CreatePerson()
-      {
-         throw new NotImplementedException();
-      }
-
+      
       public string CreatePerson(string name, string base64Image)
       {
          if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name cannot be null");
@@ -86,12 +81,6 @@ namespace Sitecore.Feature.CognitiveServices.Services
          return createPersonResult?.PersonId.ToString() ?? string.Empty;
       }
 
-      [Obsolete]
-      public void AddPhotoToPerson(string personId, string base64ImageString)
-      {
-         throw new NotImplementedException();
-      }
-
       public string VerifyPerson(string base64Image)
       {
          var personIdToReturn = string.Empty;
@@ -107,7 +96,7 @@ namespace Sitecore.Feature.CognitiveServices.Services
                personGroupId = _configuration.PersonGroupId,
                faceIds = new[] { faces[0].FaceId },
                maxNumOfCandidatesReturned = 1,
-               confidenceThreshold = 0.9
+               confidenceThreshold = _confidenceThreshold
             });
             using (var client = new HttpClient())
             {
@@ -123,7 +112,7 @@ namespace Sitecore.Feature.CognitiveServices.Services
                   var identifyResponse = JsonConvert.DeserializeObject<List<IdentifyResponse>>(result);
 
                   var candidates = identifyResponse.FirstOrDefault(c => c.FaceId == faces[0].FaceId.ToString());
-                  var candidate = candidates?.Candidates.FirstOrDefault(p => p.Confidence > 0.9);
+                  var candidate = candidates?.Candidates.FirstOrDefault(p => p.Confidence > _confidenceThreshold);
 
                   personIdToReturn = candidate?.PersonId.ToString() ?? string.Empty;
                }
@@ -167,26 +156,6 @@ namespace Sitecore.Feature.CognitiveServices.Services
             }
          }
          return faces;
-      }
-
-      private List<Person> GetPeople()
-      {
-         var list = new List<Person>();
-
-         using (var client = new HttpClient())
-         {
-            var uri = $"{_configuration.ApiRoot}/{_configuration.PersonGroupApi}/{_configuration.PersonGroupId}/persons";
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _configuration.ApiKey);
-            var response = client.GetAsync(uri).Result;
-            var result = response.Content.ReadAsStringAsync().Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-               list = JsonConvert.DeserializeObject<List<Person>>(result);
-            }
-         }
-
-         return list;
       }
    }
 }

@@ -27,3 +27,6 @@ temp/
 .vscode
 nCrunchTemp*.*
 images/
+/src/Project/Habitat/serialization/Project.Habitat.Users/habitat/terry@shaw.com.yml
+/src/Project/Habitat/serialization/Project.Habitat.Users/habitat/paul@stanley.com.yml
+/src/Project/Habitat/serialization/Project.Habitat.Users/habitat/jerry@seinfeld.com.yml
